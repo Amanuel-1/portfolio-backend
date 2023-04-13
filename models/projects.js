@@ -7,7 +7,7 @@ const projectSchema = new Schema({
     projectImg:{
         
         type:String
-     
+    
     },
     details:{
         type:String,

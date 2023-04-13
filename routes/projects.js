@@ -25,9 +25,9 @@ router.get('/:id',getAProject)
 router.post('/post',upload.single("projectImg"),createProject)
 
 //update request 
-router.patch('/update/:id',updateProject)
+router.patch('/update/:id',updateProject) 
 
-//delete request
+//delete request 
  router.delete('/delete/:id',deleteProject)
 
  //drop all projects
