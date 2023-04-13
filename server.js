@@ -12,7 +12,7 @@ const app = express();
 
 //THESE ARE MIDDLEWARES.
 app.use(cors({
-    origin:"http://localhost:3000"
+    origin:"https://main--portfolio-ethi.netlify.app/"
 }))
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
