@@ -11,9 +11,7 @@ const router_projects = require('./routes/projects');
 const app = express();
 
 //THESE ARE MIDDLEWARES.
-app.use(cors({
-    origin:"https://main--portfolio-ethi.netlify.app/"
-}))
+app.use(cors())
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
 app.use((req,res,next)=>{
