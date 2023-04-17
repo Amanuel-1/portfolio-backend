@@ -43,22 +43,22 @@ const getAProject = async (req,res)=>{
 }
 //create a new project
  const createProject = async (req,res)=>{
-    const {title,details,link,tags} = req.body ;
-    const projectImg =await req.file.originalname; 
-    console.log("extension",projectImg) 
-   const tag= tags.split(',') // to split the tags
-   //console.log(tag)
-    try{
-       
-    const project = await Project.create({title,projectImg:projectImg,details,link,tags:tag})
-    res.status(201).json({mssg:"sent successfuly",
-               request:project   });
-    }
-    catch(err){  
+    
+   const {title,link,details,projectImg,tags} = req.body ;
+   console.log(req.body)
+   
+   try{
       
-       res.status(401).json({mssg:err.message})
-    } 
+   const proj = await Project.create({title,link,details,projectImg,tags});
+   res.status(201).json({mssg:"sent successfuly",
+              request:proj   });
    }
+   catch(err){ 
+     console.log("oooooooooooops something went wrong")
+      
+      res.status(404).json({mssg:"oooooooooooops something went wrong"})
+   } 
+  }
 //delete a single project
 
 const deleteProject = async (req,res)=>{

@@ -1,19 +1,11 @@
 const express = require('express');
-const multer = require('multer');
+
 
 const {GetAllProjects,getAProject,createProject,deleteProject,updateProject,deleteAllProjects,BulkInsert} = require('../controllers/projectController');
 const router = express.Router();
 
-const storage  = multer.diskStorage({
-    destination:"./uploads",
-    filename:(req,file,cb)=>{
-        const extension = ((file.mimetype).split('/'))[1] // file.mimetype ="image/jpeg"
-        const title  =  req.body.title
-        cb(null,`${title}-${file.originalname}`)
-    }
-})
+ 
 
-const upload = multer({storage:storage });
 
 //get requests .
 router.get('/',GetAllProjects) 
@@ -22,7 +14,7 @@ router.get('/',GetAllProjects)
 router.get('/:id',getAProject)
 
 // and this is a post request
-router.post('/post',upload.single("projectImg"),createProject)
+router.post('/post',createProject)
 
 //update request 
 router.patch('/update/:id',updateProject) 
@@ -36,7 +28,7 @@ router.patch('/update/:id',updateProject)
  //bulk post for debugging only
  router.post('/bulkInsert',BulkInsert);
 
- //file uploader
+ //file uploader 
 //app.post() 
 
 module.exports =router; 
