@@ -6,12 +6,12 @@ const projectSchema = new Schema({
           },
     projectImg:{
         
-        type:String
-    
+        type:String,
+        required:true
     },
     details:{
         type:String,
-       
+        required:true 
     },
     tags: {
         type:Array,
@@ -24,7 +24,13 @@ const projectSchema = new Schema({
     viewCount:{
         type:Number,
         default:0
-    }    
+    },
+    
+    likeCount:{ 
+        type:Number,
+        default:0
+    }
+       
 },{timestamps:true});
     
 

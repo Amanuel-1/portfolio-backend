@@ -1,7 +1,7 @@
 const express = require('express');
 
 
-const {GetAllProjects,getAProject,createProject,deleteProject,updateProject,deleteAllProjects,BulkInsert} = require('../controllers/projectController');
+const {GetAllProjects,getAProject,createProject,deleteAProject,updateProject,deleteAllProjects,BulkInsert} = require('../controllers/projectController');
 const router = express.Router();
 
  
@@ -20,10 +20,10 @@ router.post('/post',createProject)
 router.patch('/update/:id',updateProject) 
 
 //delete request 
- router.delete('/delete/:id',deleteProject)
+ router.delete('/delete/:id',deleteAProject)
 
  //drop all projects
- router.delete('/delete',deleteAllProjects)
+ router.delete('/drop',deleteAllProjects)
  
  //bulk post for debugging only
  router.post('/bulkInsert',BulkInsert);
